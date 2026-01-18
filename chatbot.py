@@ -8,7 +8,6 @@ import json
 import os
 import sys
 
-# Fix for TensorFlow deadlock/mutex issues on Mac M1/M2
 os.environ['OMP_NUM_THREADS'] = '1'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 

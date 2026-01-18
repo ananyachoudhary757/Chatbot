@@ -17,20 +17,20 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-    /* ---------------- IMPORTS ---------------- */
+   
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
     
     * {
         font-family: 'Outfit', sans-serif;
     }
     
-    /* ---------------- ANIMATED BACKGROUND ---------------- */
+    
     .stApp {
         background: radial-gradient(circle at 10% 20%, #0f1016 0%, #090a0f 90%);
         color: #e0e0e0;
     }
     
-    /* Subtle moving gradient orb */
+    
     .stApp::before {
         content: '';
         position: absolute;
@@ -49,7 +49,7 @@ st.markdown("""
         100% { transform: translate(100px, 50px); }
     }
 
-    /* ---------------- SIDEBAR (NEURAL DASHBOARD) ---------------- */
+   
     [data-testid="stSidebar"] {
         background: rgba(13, 15, 23, 0.95);
         border-right: 1px solid rgba(255, 255, 255, 0.05);
@@ -115,7 +115,7 @@ st.markdown("""
         margin-left: 5px;
     }
 
-    /* ---------------- CHAT INTERFACE ---------------- */
+   
     /* Hide default elements */
     /* Hide default elements (Removed to fix sidebar toggle) */
     /* header, footer { visibility: hidden !important; } */
