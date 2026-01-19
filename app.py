@@ -121,7 +121,7 @@ st.markdown("""
     /* header, footer { visibility: hidden !important; } */
     footer { visibility: hidden !important; }
     
-    /* Input Container */
+    
     .stChatInputContainer {
         padding-bottom: 40px;
         background: linear-gradient(to top, #090a0f 0%, transparent 100%);
@@ -141,7 +141,7 @@ st.markdown("""
         box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2) !important;
     }
     
-    /* Welcome Title */
+   
     .welcome-text {
         text-align: center;
         margin-top: 15vh;
@@ -163,13 +163,12 @@ st.markdown("""
         font-weight: 300;
     }
     
-     /* Animations */
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Typewriter Cursor */
+    
     .cursor {
         display: inline-block;
         width: 3px;
@@ -181,7 +180,7 @@ st.markdown("""
         50% { opacity: 0; }
     }
     
-    /* Button Styling */
+   
     .stButton button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
@@ -236,21 +235,16 @@ def get_reply(tag):
             return random.choice(i["responses"])
     return "I'm not sure."
 
-# --------------------------------------------------
-# STATE MANAGEMENT
-# --------------------------------------------------
 if "messages" not in st.session_state:
     st.session_state.messages = []
 if "stats" not in st.session_state:
     st.session_state.stats = {"confidence": 0.0, "last_intent": "None", "total_queries": 0}
 
-# --------------------------------------------------
-# SIDEBAR: THE NEURAL DASHBOARD
-# --------------------------------------------------
+
 with st.sidebar:
     st.markdown('<div class="sidebar-header">ChatBot</div>', unsafe_allow_html=True)
     
-    # System Status Pulse
+    
     status_color = "#10b981" if model else "#ef4444"
     st.markdown(f"""
     <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px; background: rgba(255,255,255,0.03); padding:8px 12px; border-radius:30px; width:fit-content;">
@@ -261,7 +255,7 @@ with st.sidebar:
     
     st.markdown("### Live Analysis")
     
-    # Dynamic Metric Cards
+    
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(f"""
@@ -297,18 +291,18 @@ with st.sidebar:
 
 # MAIN INTERFACE
 
-# --------------------------------------------------
+
 # LOGIC: HANDLE USER INPUT
-# --------------------------------------------------
+
 def process_message(text):
 
     # ADDED: Store pending action
     st.session_state.pending_action = text
     st.rerun()
 
-# --------------------------------------------------
+
 # MAIN INTERFACE
-# --------------------------------------------------
+
 
 # WELCOME SCREEN & QUICK ACTIONS
 if not st.session_state.messages:
@@ -383,11 +377,11 @@ if st.session_state.get("typing_in_progress"):
         full_text = ""
         for chunk in response_text.split():
             full_text += chunk + " "
-            time.sleep(0.15) # Slower, more natural typing speed
+            time.sleep(0.15) 
             placeholder.markdown(full_text + "▌")
         placeholder.markdown(full_text)
     
-    # Typing done
+    
     st.session_state.typing_in_progress = False
     st.rerun()
 
